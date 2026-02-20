@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>España District</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{margin:0;font-family:Arial;background:#0b1220;color:white}
+header{background:#0e1a33;padding:15px;text-align:center;font-size:20px;font-weight:bold}
+.container{padding:20px;text-align:center}
+.card{background:#111c44;padding:25px;border-radius:15px;box-shadow:0 0 15px rgba(0,0,0,.5);animation:fade .6s}
+button{padding:12px 20px;border:none;border-radius:10px;background:#1f3fff;color:white;font-size:16px;cursor:pointer;margin-top:20px}
+button:hover{background:#355bff}
+.menu{position:fixed;top:15px;right:15px;font-size:26px;cursor:pointer}
+.panel{position:fixed;top:0;right:-260px;width:260px;height:100%;background:#0e1a33;padding:20px;transition:.4s}
+.panel a{display:block;color:white;text-decoration:none;margin:15px 0}
+.panel.open{right:0}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<header>España District</header>
+
+<div class="menu" onclick="toggleMenu()">☰</div>
+
+<div id="panel" class="panel">
+<b>Secciones</b>
+<a href="#" onclick="show('inicio')">Inicio</a>
+<a href="#" onclick="show('conceptos')">Conceptos de Roles</a>
+<a href="#" onclick="admin()">Admin Panel</a>
+</div>
+
+<div class="container">
+
+<div id="inicio" class="card">
+<h2>Bienvenido a la zona de reglas de España District</h2>
+<p>Servidor de rol serio y organizado. Aquí encontrarás todas las normas, sistemas y guías necesarias para mantener una experiencia realista, justa y profesional dentro de la comunidad.</p>
+<button onclick="show('conceptos')">Ver reglas</button>
+</div>
+
+<div id="conceptos" class="card" style="display:none">
+<h2>Conceptos de Roles</h2>
+<p>Aquí irán todos los conceptos que agregamos anteriormente.</p>
+</div>
+
+</div>
+
+<script>
+function toggleMenu(){
+document.getElementById("panel").classList.toggle("open")
+}
+
+function show(id){
+document.getElementById("inicio").style.display="none"
+document.getElementById("conceptos").style.display="none"
+document.getElementById(id).style.display="block"
+toggleMenu()
+}
+
+function admin(){
+let pass = prompt("Contraseña Admin")
+if(pass==="pampiano17"){
+alert("Acceso concedido (panel editable próximamente)")
+}else{
+alert("Contraseña incorrecta")
+}
+}
+</script>
+
+</body>
+</html>
